@@ -4,15 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server -d",
+    "build": "webpack"
   },
-  "author": "Jens Jäger",
+  "author": "Jens Jaeger",
   "license": "ISC",
   "devDependencies": {
     "awesome-typescript-loader": "^3.1.2",
     "source-map-loader": "^0.2.1",
     "typescript": "^2.2.2",
-    "webpack": "^2.3.3"
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "@types/react": "^15.0.21",
