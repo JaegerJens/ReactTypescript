@@ -1,9 +1,9 @@
-import {createStore} from "redux";
-import {AppState, ActionType} from "./typings"
+import {createStore, Action} from "redux";
+import {AppState} from "./typings"
 
 export default (initialState : AppState) => {
 
-    const reducer = (state : AppState, action: ActionType) : AppState => state;
+    const reducer = (state : AppState, action: Action) : AppState => state;
 
     const store = createStore(reducer, initialState);
 

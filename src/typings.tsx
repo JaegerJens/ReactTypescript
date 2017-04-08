@@ -6,7 +6,3 @@ export interface HelloProps {
 export interface AppState {
     hello: HelloProps
 }
-
-export interface ActionType {
-    type: string
-}
