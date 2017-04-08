@@ -1,12 +1,5 @@
 import {createStore} from "redux";
-
-interface AppState {
-    counter: number
-}
-
-interface ActionType {
-    type: string
-}
+import {AppState, ActionType} from "./typings"
 
 export default (initialState : AppState) => {
 
