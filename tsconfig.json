@@ -1,11 +1,15 @@
 {
     "compilerOptions": {
         "outDir": "./dir/",
+        "baseUrl": ".",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "es6",
+        "module": "commonjs",
         "target": "es5",
-        "jsx": "react"
+        "jsx": "react",
+        "paths": {
+            "redux": ["node_modules/redux"]
+        }
     },
     "include": [
         "./src/**/*"
