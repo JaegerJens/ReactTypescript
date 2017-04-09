@@ -2,17 +2,17 @@ import * as React from "react";
 import {AppState, TreeWidget, TreeList, TreeItem} from  "../../typings"
 import {connect} from "react-redux";
 
-const showItem = (item: TreeItem): JSX.Element => <div>
-        <p>{item.name}</p>
-        {item.children && (<ul>{listChildren(item.children)}</ul>)}
+const showItem = ({name, children}: TreeItem): JSX.Element => <div>
+        <p>{name}</p>
+        {children && (<ul>{listChildren(children)}</ul>)}
     </div>;
 
 const listChildren = (children: TreeList): JSX.Element[] =>
     children.map((entry) => <li key={entry.id}>{showItem(entry)}</li>);
 
-const Tree = (props: TreeWidget) => <div>
-        <h2>{props.title}</h2>
-        <ul>{listChildren(props.data)}</ul>
+const Tree = ({title, data}: TreeWidget) => <div>
+        <h2>{title}</h2>
+        <ul>{listChildren(data)}</ul>
     </div>;
 
 const mapStateToProps = (state: AppState) => state.tree;
