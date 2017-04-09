@@ -5,6 +5,8 @@ import {initialState} from "./initialState";
 import configureStore from "./configureStore";
 import Hello from "./components/Hello";
 
+require("file-loader?name=index.html!./index.html");
+
 const store = configureStore(initialState);
 
 const App = () => (
