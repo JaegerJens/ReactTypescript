@@ -8,12 +8,14 @@ export interface AppState {
     tree: TreeWidget;
 }
 
+export interface TreeList extends Array<TreeItem> {};
+
 export interface TreeWidget {
-    data: Array<TreeItem>;
+    data: TreeList;
 }
 
 export interface TreeItem {
     id: number;
     name: string;
-    children?: Array<TreeItem>;
+    children?: TreeList;
 }
