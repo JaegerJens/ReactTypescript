@@ -4,5 +4,16 @@ export interface HelloProps {
 }
 
 export interface AppState {
-    hello: HelloProps
+    hello: HelloProps;
+    tree: TreeWidget;
+}
+
+export interface TreeWidget {
+    data: Array<TreeItem>;
+}
+
+export interface TreeItem {
+    id: number;
+    name: string;
+    children?: Array<TreeItem>;
 }

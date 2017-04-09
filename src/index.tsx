@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import {Provider} from "react-redux";
-import {initialState} from "./initialState";
-import configureStore from "./configureStore";
-import Hello from "./components/Hello";
+import {initialState} from "./store/initialState";
+import configureStore from "./store/configureStore";
+import Hello from "./components/Hello/Hello";
 
 require("file-loader?name=index.html!./index.html");
 

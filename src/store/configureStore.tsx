@@ -1,5 +1,5 @@
 import {createStore, Action} from "redux";
-import {AppState} from "./typings"
+import {AppState} from "../typings"
 
 export default (initialState : AppState) => {
 
