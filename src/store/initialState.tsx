@@ -31,6 +31,7 @@ export const initialState : AppState = {
         framework: "React 15.5"
     },
     tree: {
+        title: "Tree Widget",
         data: [extedorin]
     }
 }

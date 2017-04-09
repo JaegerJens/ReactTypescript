@@ -11,11 +11,10 @@ const listChildren = (children: TreeList): JSX.Element[] =>
     children.map((entry) => <li key={entry.id}>{showItem(entry)}</li>);
 
 const Tree = (props: TreeWidget) => <div>
-        <h1>TreeWidget</h1>
+        <h2>{props.title}</h2>
         <ul>{listChildren(props.data)}</ul>
     </div>;
 
 const mapStateToProps = (state: AppState) => state.tree;
 
 export default connect(mapStateToProps)(Tree);
-    

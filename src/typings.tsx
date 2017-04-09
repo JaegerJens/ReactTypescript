@@ -11,6 +11,7 @@ export interface AppState {
 export interface TreeList extends Array<TreeItem> {};
 
 export interface TreeWidget {
+    title: string;
     data: TreeList;
 }
 
