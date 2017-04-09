@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 const showItem = (item: TreeItem): JSX.Element => <div>
         <p>{item.name}</p>
-        {item.children ? (<ul>{listChildren(item.children)}</ul>) : ''}
+        {item.children && (<ul>{listChildren(item.children)}</ul>)}
     </div>;
 
 const listChildren = (children: TreeList): JSX.Element[] =>
