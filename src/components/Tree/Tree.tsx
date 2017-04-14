@@ -3,7 +3,7 @@ import {AppState, TreeWidget, TreeList, TreeItem} from  "../../typings"
 import {connect} from "react-redux";
 
 const showItem = ({name, children}: TreeItem): JSX.Element => <div>
-        <p>{name}</p>
+        <span>{name}</span>
         {children && (<ul>{listChildren(children)}</ul>)}
     </div>;
 
