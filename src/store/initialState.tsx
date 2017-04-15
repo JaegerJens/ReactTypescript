@@ -27,7 +27,7 @@ const extedorin : TreeItem = {
 
 export const initialState : AppState = {
     hello: {
-        compiler: "Typescript 2.2",
+        compiler: "Typescript 2.3",
         framework: "React 15.5"
     },
     tree: {
