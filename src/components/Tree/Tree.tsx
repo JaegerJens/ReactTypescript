@@ -2,7 +2,8 @@ import * as React from "react";
 import {AppState, TreeWidget, TreeList, TreeItem} from  "../../typings"
 import {connect} from "react-redux";
 
-const showItem = ({name, children, isExpanded}: TreeItem): JSX.Element => <div>
+const showItem = ({name, children, isExpanded, id}: TreeItem): JSX.Element => <div>
+        <input type="checkbox" name="isExpanded" checked={isExpanded}/>
         <span>{name}</span>
         {children && isExpanded && (<ul>{listChildren(children)}</ul>)}
     </div>;

@@ -12,7 +12,7 @@ const extedorin : TreeItem = {
             children: [
                 {id: 100001, name: "m1", isExpanded: false},
                 {id: 100002, name: "m2", isExpanded: false},
-                {id: 100003, name: "m3", isExpanded: false},
+                {id: 100003, name: "m3", isExpanded: true},
                 {id: 100004, name: "m4", isExpanded: false},
                 {id: 100005, name: "m5", isExpanded: false}
             ]
