@@ -18,5 +18,6 @@ export interface TreeWidget {
 export interface TreeItem {
     id: number;
     name: string;
+    isExpanded: boolean;
     children?: TreeList;
 }

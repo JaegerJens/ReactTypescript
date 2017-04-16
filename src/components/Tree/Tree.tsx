@@ -2,9 +2,9 @@ import * as React from "react";
 import {AppState, TreeWidget, TreeList, TreeItem} from  "../../typings"
 import {connect} from "react-redux";
 
-const showItem = ({name, children}: TreeItem): JSX.Element => <div>
+const showItem = ({name, children, isExpanded}: TreeItem): JSX.Element => <div>
         <span>{name}</span>
-        {children && (<ul>{listChildren(children)}</ul>)}
+        {children && isExpanded && (<ul>{listChildren(children)}</ul>)}
     </div>;
 
 const listChildren = (children: TreeList): JSX.Element[] =>
