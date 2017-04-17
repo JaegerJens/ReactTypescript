@@ -1,6 +1,8 @@
 import * as React from "react";
 import {AppState, TreeWidget, TreeList, TreeItem} from  "../../typings"
 import {connect} from "react-redux";
+require("./tree.css");
+const treeStyle = "tree";
 
 const showItem = ({name, children, isExpanded, id}: TreeItem): JSX.Element => <div>
         <input type="checkbox" name="isExpanded" checked={isExpanded}/>
@@ -13,7 +15,9 @@ const listChildren = (children: TreeList): JSX.Element[] =>
 
 const Tree = ({title, data}: TreeWidget) => <div>
         <h2>{title}</h2>
-        <ul>{listChildren(data)}</ul>
+        <div className="tree">
+            <ul>{listChildren(data)}</ul>
+        </div>
     </div>;
 
 const mapStateToProps = (state: AppState) => state.tree;
