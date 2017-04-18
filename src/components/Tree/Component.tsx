@@ -1,5 +1,6 @@
 import * as React from "react";
-import {AppState, SwitchExpandAction, TreeActions, TreeWidget, TreeList, TreeItem} from  "../../typings"
+import {AppState} from  "../../typings"
+import {SwitchExpandAction, TreeActions, TreeWidget, TreeList, TreeItem} from "./typings"
 import {connect} from "react-redux";
 require("./style.css");
 const treeStyle = "tree";

@@ -1,4 +1,5 @@
-import {AppState, SwitchExpandAction, TreeItem, TreeActions, TreeExpandAction} from  "../../typings"
+import {AppState} from  "../../typings"
+import {SwitchExpandAction, TreeItem, TreeActions, TreeExpandAction} from "./typings"
 import {Tree} from "./Component";
 import {expandAction} from "./Action";
 import {Dispatch} from "redux";

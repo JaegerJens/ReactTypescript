@@ -1,4 +1,5 @@
-import {AppState, TreeItem} from "../typings";
+import {AppState} from "../typings";
+import {TreeItem} from "../components/Tree/typings"
 
 const extedorin : TreeItem = {
     id: 1,
