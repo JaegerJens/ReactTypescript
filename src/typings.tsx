@@ -1,3 +1,5 @@
+import {Action} from "redux";
+
 export interface HelloProps {
     compiler: string;
     framework: string;
@@ -20,4 +22,8 @@ export interface TreeItem {
     name: string;
     isExpanded: boolean;
     children?: TreeList;
+}
+
+export interface TreeActions {
+    switchExpand(item: TreeItem, isEnabled: boolean): Action
 }
