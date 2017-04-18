@@ -1,7 +1,7 @@
 import * as React from "react";
 import {AppState, HelloProps} from "../../typings";
 import {connect} from "react-redux";
-import Tree from "../Tree/Tree";
+import Tree from "../Tree/Container";
 
 const Hello = ({compiler, framework}: HelloProps) => <div>
         <h1>Hello from {compiler} and {framework}!</h1>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {AppState, TreeWidget, TreeList, TreeItem} from  "../../typings"
 import {connect} from "react-redux";
-require("./tree.css");
+require("./style.css");
 const treeStyle = "tree";
 
 const showItem = ({name, children, isExpanded, id}: TreeItem): JSX.Element => <div>
@@ -20,6 +20,4 @@ const Tree = ({title, data}: TreeWidget) => <div>
         </div>
     </div>;
 
-const mapStateToProps = (state: AppState) => state.tree;
-
-export default connect(mapStateToProps)(Tree);
+export {Tree};
