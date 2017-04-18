@@ -1,10 +1,11 @@
 import {combineReducers, createStore, Action, Reducer, ReducersMapObject} from "redux";
 import {reduceExpand} from "../components/Tree/Reducer"
+import {initialState} from "./initialState";
 import {AppState} from "../typings"
 
-const logReducer: Reducer<any> = (state: any, action: any) => {
-    console.log(state, action)
-    return {};
+const logReducer: Reducer<any> = (state: any = initialState, action: any) => {
+    console.log("logReducer", state, action);
+    return state;
 };
 
 const reducerMap: ReducersMapObject = {
