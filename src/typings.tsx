@@ -1,4 +1,4 @@
-import {Action} from "redux";
+import {Action, Dispatch} from "redux";
 
 export interface HelloProps {
     compiler: string;
@@ -25,7 +25,7 @@ export interface TreeItem {
 }
 
 export interface SwitchExpandAction {
-    (item: TreeItem, isEnabled: boolean): void
+    (item: TreeItem, isEnabled: boolean): TreeExpandAction
 }
 
 export interface TreeActions {
