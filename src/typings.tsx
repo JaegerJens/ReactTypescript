@@ -24,6 +24,10 @@ export interface TreeItem {
     children?: TreeList;
 }
 
+export interface SwitchExpandAction {
+    (item: TreeItem, isEnabled: boolean): Action
+}
+
 export interface TreeActions {
-    switchExpand(item: TreeItem, isEnabled: boolean): Action
+    switchExpand: SwitchExpandAction
 }
