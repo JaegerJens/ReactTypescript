@@ -25,9 +25,15 @@ export interface TreeItem {
 }
 
 export interface SwitchExpandAction {
-    (item: TreeItem, isEnabled: boolean): Action
+    (item: TreeItem, isEnabled: boolean): void
 }
 
 export interface TreeActions {
     switchExpand: SwitchExpandAction
+}
+
+export interface TreeExpandAction extends Action {
+    type: "TREE_SWITCHEXPAND",
+    item: TreeItem,
+    isExpanded: boolean;
 }

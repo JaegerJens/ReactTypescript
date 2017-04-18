@@ -1,9 +1,15 @@
-import {createStore, Action} from "redux";
+import {combineReducers, createStore, Action, ReducersMapObject} from "redux";
+import {reduceExpand} from "../components/Tree/Reducer"
 import {AppState} from "../typings"
 
-export default (initialState : AppState) => {
 
-    const reducer = (state : AppState, action: Action) : AppState => state;
+const reducerMap: ReducersMapObject = {
+    tree: reduceExpand
+};
+
+const reducer = combineReducers<AppState>(reducerMap);
+
+export default (initialState : AppState) => {
 
     const store = createStore(reducer, initialState);
 

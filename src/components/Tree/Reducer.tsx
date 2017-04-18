@@ -1,17 +1,10 @@
-import {Action} from "redux";
+import {Action, Reducer} from "redux";
 import {TreeWidget} from "../../typings"
 import {initialState}  from "../../store/initialState"
-import {SwitchExpand} from "./Action"
 
-const reduce = (state: TreeWidget = initialState.tree, action: Action) => {
+const reduceExpand: Reducer<TreeWidget> = (state: TreeWidget = initialState.tree, action: Action): TreeWidget => {
     console.log(state, action);
-    switch(action.type) {
-        case SwitchExpand.type: {
-            
-        }
-        default:
-            return state;
-    }
+    return state;
 };
 
-export default reduce;
+export {reduceExpand};
