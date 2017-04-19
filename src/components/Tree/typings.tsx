@@ -1,17 +1,16 @@
 import {Action} from "redux";
 
-export interface TreeList extends Array<TreeItem> {};
-
 export interface TreeWidget {
     title: string;
-    data: TreeList;
+    data: TreeItem[];
 }
 
 export interface TreeItem {
     id: number;
+    level: number;
+    parent?: number;
     name: string;
     isExpanded: boolean;
-    children?: TreeList;
 }
 
 export interface SwitchExpandAction {
