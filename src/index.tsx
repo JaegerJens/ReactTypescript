@@ -9,6 +9,7 @@ import TreeUtil from "./components/Tree/util";
 require("file-loader?name=index.html!./index.html");
 
 let treeData = initialState.tree.data;
+TreeUtil.recalcParentIndex(treeData);
 TreeUtil.recalcChildrenMap(treeData);
 console.log("tree data", treeData);
 
