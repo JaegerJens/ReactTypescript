@@ -1,4 +1,5 @@
 import {TreeWidget} from "./components/Tree/typings";
+export * from "./components/Tree/typings";
 
 export interface HelloProps {
     compiler: string;
