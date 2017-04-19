@@ -8,7 +8,8 @@ export interface TreeWidget {
 export interface TreeItem {
     id: number;
     level: number;
-    parent?: number;
+    parentId?: number;
+    parentIndex?: number;
     name: string;
     isExpanded: boolean;
 }
