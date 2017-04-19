@@ -8,7 +8,10 @@
         "target": "es5",
         "jsx": "react",
         "lib": [
-            "es2015", "es2015.collection", "dom"
+            "es2015",
+            "es2015.collection",
+            "es2015.iterable",
+            "dom"
         ],
         "paths": {
             "redux": ["node_modules/redux"]

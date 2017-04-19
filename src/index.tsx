@@ -4,8 +4,13 @@ import {Provider} from "react-redux";
 import {initialState} from "./store/initialState";
 import configureStore from "./store/configureStore";
 import Hello from "./components/Hello/Hello";
+import TreeUtil from "./components/Tree/util";
 
 require("file-loader?name=index.html!./index.html");
+
+let treeData = initialState.tree.data;
+TreeUtil.recalcChildrenMap(treeData);
+console.log("tree data", treeData);
 
 const store = configureStore(initialState);
 

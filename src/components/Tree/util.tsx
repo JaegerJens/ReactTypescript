@@ -32,8 +32,47 @@ const computeParentIndex = (data: TreeItem[]) => {
     }
 }
 
+const computeChildIndex = (data: TreeItem[]) => {
+    // map TreeItem.id -> array index
+    let idMap = new Map();
+
+    // parent id => list of child index
+    let childMap = new Map();
+
+    for(let i=0; i<data.length; i++) {
+        let item = data[i];
+        idMap.set(item.id, i);
+
+        if (!item.parentId)
+            continue;
+
+        if (!childMap.has(item.parentId)) {
+            childMap.set(item.parentId, [])
+        }
+
+        let childList = childMap.get(item.parentId);
+        childList.push(i);
+    }
+
+    // set TreeItem.childrenIndex
+    childMap.forEach( (childrenIndexList, k) => {
+        if (childrenIndexList.length < 1)
+            return;
+
+        let children: number[] = [];
+        for(let p=0; p<childrenIndexList.length; p++) {
+            let childIndex = childrenIndexList[p];
+            children.push(childIndex);
+        }
+
+        let parent = data[idMap.get(k)];
+        parent.childrenIndex = children;
+    });
+}
+
 const util = {
     recalcParentIndex: computeParentIndex,
+    recalcChildrenMap: computeChildIndex,
     getChildren: getChildrenWithFullsearch,
     getRoot: getRoot
 };

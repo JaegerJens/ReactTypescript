@@ -10,6 +10,7 @@ export interface TreeItem {
     level: number;
     parentId?: number;
     parentIndex?: number;
+    childrenIndex?: number[],
     name: string;
     isExpanded: boolean;
 }
