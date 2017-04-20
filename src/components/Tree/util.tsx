@@ -70,10 +70,32 @@ const computeChildIndex = (data: TreeItem[]) => {
     });
 }
 
+const findIndex = (data: TreeItem[], search: TreeItem): number => {
+    for(let i=0; i<data.length; i++) {
+        if (data[i].id === search.id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+const replaceTreeItem = (source: TreeItem[], replacement: TreeItem): TreeItem[] => {
+    let pos = findIndex(source, replacement);
+    if (pos < 0) {
+        console.error("Item not found", replacement);
+        return source;
+    }
+
+    let result: TreeItem[] = [...source];
+    result.splice(pos, 1, replacement);
+    return result;
+}
+
 const util = {
     recalcParentIndex: computeParentIndex,
     recalcChildrenMap: computeChildIndex,
     getChildren: getChildrenWithFullsearch,
+    replaceTreeItem: replaceTreeItem,
     getRoot: getRoot
 };
 

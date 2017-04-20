@@ -1,6 +1,7 @@
 import {Action, Reducer} from "redux";
 import {TreeWidget, TreeItem, TreeExpandAction, TREE_SWITCHEXPAND_ACTION} from "./typings"
 import {initialState}  from "../../store/initialState"
+import TreeUtil from "./util"
 
 const reduceExpand: Reducer<TreeWidget> = (state: TreeWidget = initialState.tree, action: Action): TreeWidget => {
     console.log("expandReducer", state, action);
@@ -12,6 +13,10 @@ const reduceExpand: Reducer<TreeWidget> = (state: TreeWidget = initialState.tree
                 isExpanded: expandAction.isExpanded
             };
             console.log(TREE_SWITCHEXPAND_ACTION, expandAction, switchedItem);
+            return {
+                ...state,
+                data: TreeUtil.replaceTreeItem(state.data, switchedItem)
+            };
     }
     return state;
 };
