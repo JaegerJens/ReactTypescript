@@ -11,34 +11,39 @@ export interface TreeItem {
     level: number;
     parentId?: number;
     parentIndex?: number;
-    childrenIndex?: number[],
+    childrenIndex?: number[];
     name: string;
     isExpanded: boolean;
+    icon: string;
 }
 
 export interface SwitchExpandAction {
-    (item: TreeItem, isEnabled: boolean): TreeExpandAction
+    (item: TreeItem, isEnabled: boolean): TreeExpandAction;
 }
 
 export interface TreeActions {
-    switchExpand: SwitchExpandAction
+    switchExpand: SwitchExpandAction;
 }
 
 export interface ExpandButtonProps {
-    isExpanded: boolean,
-    eventHandler: ChangeEventHandler<any>
+    isExpanded: boolean;
+    eventHandler: ChangeEventHandler<any>;
 }
 
 export interface TreeElementProps {
-    data: TreeItem[],
-    item: TreeItem,
-    expandHandler: SwitchExpandAction
+    data: TreeItem[];
+    item: TreeItem;
+    expandHandler: SwitchExpandAction;
+}
+
+export interface AwesomeIconProps {
+    name: string;
 }
 
 export const TREE_SWITCHEXPAND_ACTION = "TREE_SWITCHEXPAND";
 
 export interface TreeExpandAction extends Action {
-    type: "TREE_SWITCHEXPAND",
-    item: TreeItem,
+    type: "TREE_SWITCHEXPAND";
+    item: TreeItem;
     isExpanded: boolean;
 }

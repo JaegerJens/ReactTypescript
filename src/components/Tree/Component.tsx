@@ -1,6 +1,6 @@
 import * as React from "react";
 import Util from "./util"
-import {ExpandButtonProps, TreeElementProps, SwitchExpandAction, TreeActions, TreeWidget, TreeItem} from "./typings"
+import {AwesomeIconProps, ExpandButtonProps, TreeElementProps, SwitchExpandAction, TreeActions, TreeWidget, TreeItem} from "./typings"
 import {connect} from "react-redux";
 require("./style.css");
 const treeStyle = "tree";
@@ -10,6 +10,11 @@ const ExpandButton = ({isExpanded, eventHandler}: ExpandButtonProps): JSX.Elemen
                   checked={isExpanded} onChange={eventHandler}/>;
 }
 
+const AwesomeIcon = ({name}: AwesomeIconProps): JSX.Element => {
+    const cssClass = `fa fa-${name}`;
+    return <i className={cssClass}/>;
+}
+
 const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element => {
     const eventHandler = (event:any) => expandHandler(item, !item.isExpanded);
     const children = Util.getChildren(data, item.id);
@@ -17,7 +22,7 @@ const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element
 
     return <li key={item.id}>
         <ExpandButton isExpanded={item.isExpanded} eventHandler={eventHandler}/>
-        <span>{item.name}</span>
+        <span><AwesomeIcon name={item.icon}/> {item.name}</span>
         {showChildren && <ul>{children.map(child => <TreeElement key={child.id} data={data} item={child} expandHandler={expandHandler} />)}</ul>}
     </li>;
 }
