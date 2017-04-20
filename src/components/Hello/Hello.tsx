@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import Tree from "../Tree/Container";
 
 const Hello = ({compiler, framework}: HelloProps) => <div>
-        <h1>Hello from {compiler} and {framework}!</h1>
+        <h1><i className="fa fa-heart" /> for {compiler} and {framework}!</h1>
         <Tree />
     </div>;
 
