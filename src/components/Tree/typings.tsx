@@ -1,3 +1,4 @@
+import {ChangeEventHandler} from "react";
 import {Action} from "redux";
 
 export interface TreeWidget {
@@ -23,6 +24,10 @@ export interface TreeActions {
     switchExpand: SwitchExpandAction
 }
 
+export interface ExpandButtonProps {
+    isExpanded: boolean,
+    eventHandler: ChangeEventHandler<any>
+}
 
 export const TREE_SWITCHEXPAND_ACTION = "TREE_SWITCHEXPAND";
 
