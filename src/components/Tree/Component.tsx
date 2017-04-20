@@ -4,15 +4,19 @@ import {AwesomeIconProps, ExpandButtonProps, TreeElementProps, SwitchExpandActio
 import {connect} from "react-redux";
 require("./style.css");
 const treeStyle = "tree";
+const iconColor = "green";
 
 const ExpandButton = ({isExpanded, eventHandler}: ExpandButtonProps): JSX.Element => {
     return <input type="checkbox" name="isExpanded"
                   checked={isExpanded} onChange={eventHandler}/>;
 }
 
-const AwesomeIcon = ({name}: AwesomeIconProps): JSX.Element => {
+const AwesomeIcon = ({name, color}: AwesomeIconProps): JSX.Element => {
+    const style = {
+        color: color
+    };
     const cssClass = `fa fa-${name}`;
-    return <i className={cssClass}/>;
+    return <i className={cssClass} style={style}/>;
 }
 
 const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element => {
@@ -23,7 +27,7 @@ const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element
 
     return <li key={item.id}>
         {hasChildren && <ExpandButton isExpanded={item.isExpanded} eventHandler={eventHandler}/> }
-        <span><AwesomeIcon name={item.icon}/> {item.name}</span>
+        <span><AwesomeIcon name={item.icon} color={iconColor} /> {item.name}</span>
         {showChildren && <ul>{children.map(child => <TreeElement key={child.id} data={data} item={child} expandHandler={expandHandler} />)}</ul>}
     </li>;
 }

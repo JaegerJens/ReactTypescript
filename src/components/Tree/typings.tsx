@@ -38,6 +38,7 @@ export interface TreeElementProps {
 
 export interface AwesomeIconProps {
     name: string;
+    color: string;
 }
 
 export const TREE_SWITCHEXPAND_ACTION = "TREE_SWITCHEXPAND";
