@@ -18,10 +18,11 @@ const AwesomeIcon = ({name}: AwesomeIconProps): JSX.Element => {
 const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element => {
     const eventHandler = (event:any) => expandHandler(item, !item.isExpanded);
     const children = Util.getChildren(data, item.id);
-    const showChildren: boolean = !!children && item.isExpanded;
+    const hasChildren: boolean = !!children && children.length > 0;
+    const showChildren: boolean = hasChildren && item.isExpanded;
 
     return <li key={item.id}>
-        <ExpandButton isExpanded={item.isExpanded} eventHandler={eventHandler}/>
+        {hasChildren && <ExpandButton isExpanded={item.isExpanded} eventHandler={eventHandler}/> }
         <span><AwesomeIcon name={item.icon}/> {item.name}</span>
         {showChildren && <ul>{children.map(child => <TreeElement key={child.id} data={data} item={child} expandHandler={expandHandler} />)}</ul>}
     </li>;
