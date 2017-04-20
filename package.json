@@ -11,6 +11,7 @@
   "author": "Jens Jaeger",
   "license": "ISC",
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
@@ -27,6 +28,7 @@
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.16.1",
     "typescript": "^2.3.0",
+    "url-loader": "^0.5.8",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"
   }

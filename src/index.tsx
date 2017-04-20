@@ -7,6 +7,7 @@ import Hello from "./components/Hello/Hello";
 import TreeUtil from "./components/Tree/util";
 
 require("file-loader?name=index.html!./index.html");
+require('font-awesome/css/font-awesome.css');
 
 let treeData = initialState.tree.data;
 TreeUtil.recalcParentIndex(treeData);
