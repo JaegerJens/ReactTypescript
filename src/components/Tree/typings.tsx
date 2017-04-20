@@ -14,7 +14,7 @@ export interface TreeItem {
     childrenIndex?: number[];
     name: string;
     isExpanded: boolean;
-    icon: string;
+    objectType: "dossier" | "sequence" | "section" | "leaf";
 }
 
 export interface SwitchExpandAction {
@@ -38,6 +38,11 @@ export interface TreeElementProps {
 
 export interface AwesomeIconProps {
     name: string;
+    color: string;
+}
+
+export interface ObjectStyle {
+    icon: string;
     color: string;
 }
 
