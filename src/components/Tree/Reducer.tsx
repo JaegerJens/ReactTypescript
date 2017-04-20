@@ -3,8 +3,9 @@ import {TreeWidget, TreeItem, TreeExpandAction, TREE_SWITCHEXPAND_ACTION} from "
 import {initialState}  from "../../store/initialState"
 import TreeUtil from "./util"
 
+const reducerName = "tree epxand reducer";
+
 const reduceExpand: Reducer<TreeWidget> = (state: TreeWidget = initialState.tree, action: Action): TreeWidget => {
-    console.log("expandReducer", state, action);
     switch(action.type) {
         case TREE_SWITCHEXPAND_ACTION:
             let expandAction = action as TreeExpandAction;
@@ -12,11 +13,13 @@ const reduceExpand: Reducer<TreeWidget> = (state: TreeWidget = initialState.tree
                 ...expandAction.item,
                 isExpanded: expandAction.isExpanded
             };
-            console.log(TREE_SWITCHEXPAND_ACTION, expandAction, switchedItem);
+            console.log(reducerName, TREE_SWITCHEXPAND_ACTION, expandAction, switchedItem);
             return {
                 ...state,
                 data: TreeUtil.replaceTreeItem(state.data, switchedItem)
             };
+        default:
+            console.log(reducerName, state, action);
     }
     return state;
 };
