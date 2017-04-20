@@ -29,6 +29,12 @@ export interface ExpandButtonProps {
     eventHandler: ChangeEventHandler<any>
 }
 
+export interface TreeElementProps {
+    data: TreeItem[],
+    item: TreeItem,
+    expandHandler: SwitchExpandAction
+}
+
 export const TREE_SWITCHEXPAND_ACTION = "TREE_SWITCHEXPAND";
 
 export interface TreeExpandAction extends Action {
