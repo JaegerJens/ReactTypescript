@@ -1,6 +1,5 @@
 import * as React from "react";
 import Util from "./util"
-import {AppState} from  "../../typings"
 import {SwitchExpandAction, TreeActions, TreeWidget, TreeItem} from "./typings"
 import {connect} from "react-redux";
 require("./style.css");
@@ -13,14 +12,14 @@ const showItem = (data: TreeItem[], item: TreeItem, switchExpand: SwitchExpandAc
     let children = Util.getChildren(data, item.id);
     let showChildren: boolean = !!children && item.isExpanded;
 
-    return <div>
+    return <li key={item.id}>
         <input type="checkbox"
             name="isExpanded"
             checked={item.isExpanded}
             onChange={eventHandler}/>
         <span>{item.name}</span>
-        {showChildren && children.map(child => (<ul>{showItem(data, child, switchExpand)}</ul>))}
-    </div>;
+        {showChildren && <ul>{children.map(child => showItem(data, child, switchExpand))}</ul>}
+    </li>;
 } 
 
 const Tree = ({title, data, switchExpand}: TreeWidget & TreeActions) =>{
