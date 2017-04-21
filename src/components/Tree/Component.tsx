@@ -6,11 +6,6 @@ require("./style.css");
 const treeStyle = "tree";
 const iconColor = "green";
 
-const ExpandButton = ({isExpanded, eventHandler}: ExpandButtonProps): JSX.Element => {
-    return <input type="checkbox" name="isExpanded"
-                  checked={isExpanded} onChange={eventHandler}/>;
-}
-
 const AwesomeIcon = ({name, color}: AwesomeIconProps): JSX.Element => {
     const style = {
         color: color
@@ -49,8 +44,11 @@ const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element
     const showChildren: boolean = hasChildren && item.isExpanded;
 
     return <li key={item.id}>
-        {hasChildren && <ExpandButton isExpanded={item.isExpanded} eventHandler={eventHandler}/> }
-        <span><AwesomeIcon name={style.icon} color={style.color} /> {item.name}</span>
+        <span onClick={eventHandler}>
+            <AwesomeIcon name={style.icon} color={style.color} /> &nbsp;
+            {item.name} &nbsp;
+            {hasChildren && !showChildren && <AwesomeIcon name="expand" color="grey" /> }
+        </span>
         {showChildren && <ul>{children.map(child => <TreeElement key={child.id} data={data} item={child} expandHandler={expandHandler} />)}</ul>}
     </li>;
 }
