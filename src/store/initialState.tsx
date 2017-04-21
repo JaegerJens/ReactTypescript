@@ -21,7 +21,7 @@ const extedorin : TreeItem[] = [
         parentId: 2,
         name: "m1",
         objectType: "section",
-        isExpanded: false
+        isExpanded: true
     }, {
         id: 4,
         level: 2,
@@ -63,6 +63,13 @@ const extedorin : TreeItem[] = [
         objectType: "sequence",
         level: 1,
         parentId: 1,
+        isExpanded: false
+    }, {
+        id: 10,
+        name: "cover-letter",
+        objectType: "leaf",
+        level: 3,
+        parentId: 3,
         isExpanded: false
     }
 ];

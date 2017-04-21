@@ -11,7 +11,7 @@ const AwesomeIcon = ({name, color}: AwesomeIconProps): JSX.Element => {
         color: color
     };
     const cssClass = `fa fa-${name}`;
-    return <i className={cssClass} style={style}/>;
+    return <span className={cssClass} style={style}/>;
 }
 
 const displayObject = (item: TreeItem): ObjectStyle => {
@@ -19,18 +19,23 @@ const displayObject = (item: TreeItem): ObjectStyle => {
         case "dossier":
             return {
                 icon: "envelope",
-                color: "red"
+                color: "brown"
             };
         case "sequence":
             return {
-                icon: "folder",
+                icon: "circle",
                 color: "green"
             };
         case "section":
             return {
-                icon: "sticky-note-o",
+                icon: "folder-open",
                 color: "yellow"
             };
+        case "leaf":
+            return {
+                icon: "file",
+                color: "orange"
+            }
         default:
             throw `unknown object type ${item.objectType}`
     }
@@ -42,11 +47,13 @@ const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element
     const style = displayObject(item);
     const hasChildren: boolean = !!children && children.length > 0;
     const showChildren: boolean = hasChildren && item.isExpanded;
+    const isLeaf: boolean = item.objectType == "leaf";
 
     return <li key={item.id}>
         <span onClick={eventHandler}>
             <AwesomeIcon name={style.icon} color={style.color} /> &nbsp;
             {item.name} &nbsp;
+            {isLeaf && <AwesomeIcon name="external-link" color={style.color} /> }
             {hasChildren && !showChildren && <AwesomeIcon name="expand" color="grey" /> }
         </span>
         {showChildren && <ul>{children.map(child => <TreeElement key={child.id} data={data} item={child} expandHandler={expandHandler} />)}</ul>}
