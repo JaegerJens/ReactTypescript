@@ -1,9 +1,9 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { AwesomeIconProps, ObjectStyle, TreeElementProps } from "../../../typings/index.d";
-import { TreeWidget } from "../../../typings/model.d";
-import { TreeActions } from "../../../typings/redux.d";
-import { TreeItem } from "../../../typings/tree.d";
+import { AwesomeIconProps, ObjectStyle, TreeElementProps } from "../../../typings/index";
+import { TreeWidget } from "../../../typings/model";
+import { TreeActions } from "../../../typings/redux";
+import { TreeItem } from "../../../typings/tree";
 import Util from "./util";
 require("./style.css");
 const treeStyle = "tree";

@@ -1,4 +1,4 @@
-import { TreeItem } from "../../../typings/tree.d";
+import { TreeItem } from "../../../typings/tree";
 
 const getRoot = (data: TreeItem[]): TreeItem => {
     if (!data || data.length < 1) {

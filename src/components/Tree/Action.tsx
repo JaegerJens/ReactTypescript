@@ -1,6 +1,6 @@
 import { Action, Dispatch } from "redux";
-import { SwitchExpandAction, TreeExpandAction } from "../../../typings/redux.d";
-import { TreeItem } from "../../../typings/tree.d";
+import { SwitchExpandAction, TreeExpandAction } from "../../../typings/redux";
+import { TreeItem } from "../../../typings/tree";
 
 export const TREE_SWITCHEXPAND_ACTION = "TREE_SWITCHEXPAND";
 

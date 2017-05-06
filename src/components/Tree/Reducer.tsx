@@ -1,7 +1,7 @@
 import { Action, Reducer } from "redux";
-import { TreeWidget } from "../../../typings/model.d";
-import { TreeExpandAction } from "../../../typings/redux.d";
-import { TreeItem } from "../../../typings/tree.d";
+import { TreeWidget } from "../../../typings/model";
+import { TreeExpandAction } from "../../../typings/redux";
+import { TreeItem } from "../../../typings/tree";
 import { initialState } from "../../store/initialState";
 import { TREE_SWITCHEXPAND_ACTION } from "./Action";
 import TreeUtil from "./util";
