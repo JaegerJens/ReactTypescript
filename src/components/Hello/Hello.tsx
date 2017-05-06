@@ -1,6 +1,6 @@
 import * as React from "react";
-import {AppState, HelloProps} from "../../typings";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { AppState, HelloProps } from "../../../typings/model";
 import Tree from "../Tree/Container";
 
 const Hello = ({compiler, framework}: HelloProps) => <div>
@@ -8,6 +8,6 @@ const Hello = ({compiler, framework}: HelloProps) => <div>
         <Tree />
     </div>;
 
-const mapStateToProps = (state:AppState) => state.hello;
+const mapStateToProps = (state: AppState) => state.hello;
 
 export default connect(mapStateToProps)(Hello);

@@ -1,14 +1,13 @@
-import {AppState, } from  "../../typings"
-import {SwitchExpandAction, TreeItem, TreeActions, TreeExpandAction, TREE_SWITCHEXPAND_ACTION} from "./typings";
 import {Action, Dispatch} from "redux";
+import { SwitchExpandAction, TREE_SWITCHEXPAND_ACTION, TreeExpandAction } from "../../../typings/redux.d";
+import { TreeItem } from "../../../typings/tree.d";
 
 const expandAction: SwitchExpandAction = (item: TreeItem, isEnabled: boolean): TreeExpandAction => {
     return {
         type: TREE_SWITCHEXPAND_ACTION,
-        item: item,
+        item,
         isExpanded: isEnabled
     };
 };
-
 
 export {expandAction};

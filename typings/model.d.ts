@@ -1,5 +1,4 @@
-import {TreeWidget} from "./components/Tree/typings";
-export * from "./components/Tree/typings";
+import {TreeItem} from "./tree"
 
 export interface HelloProps {
     compiler: string;
@@ -9,4 +8,9 @@ export interface HelloProps {
 export interface AppState {
     hello: HelloProps;
     tree: TreeWidget;
+}
+
+export interface TreeWidget {
+    title: string;
+    data: TreeItem[];
 }

@@ -1,7 +1,7 @@
-import {AppState} from "../typings";
-import {TreeItem} from "../components/Tree/typings"
+import { AppState } from "typings/model";
+import { TreeItem } from "typings/tree";
 
-const extedorin : TreeItem[] = [
+const extedorin: TreeItem[] = [
     {
         id: 1,
         level: 0,
@@ -14,7 +14,7 @@ const extedorin : TreeItem[] = [
         parentId: 1,
         name: "0000",
         objectType: "sequence",
-        isExpanded: true,
+        isExpanded: true
     }, {
         id: 3,
         level: 2,
@@ -74,7 +74,7 @@ const extedorin : TreeItem[] = [
     }
 ];
 
-export const initialState : AppState = {
+export const initialState: AppState = {
     hello: {
         compiler: "Typescript 2.3",
         framework: "React 15.5"
@@ -83,4 +83,4 @@ export const initialState : AppState = {
         title: "Tree Widget",
         data: extedorin
     }
-}
+};

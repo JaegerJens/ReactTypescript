@@ -1,17 +1,17 @@
-import {TreeWidget, TreeItem} from "./typings"
+import { TreeItem } from "../../../typings/tree.d";
 
 const getRoot = (data: TreeItem[]): TreeItem => {
     if (!data || data.length < 1)
         return null;
-    let first = data[0];
+    const first = data[0];
     if (!first.parentId)
         return first;
-    
+
     let entriesWithoutParents = data.filter(elem => !elem.parentId);
     if (entriesWithoutParents.length == 1)
         return entriesWithoutParents[0];
-    throw "too few or too many roots";
-}
+    throw new Error("too few or too many roots");
+};
 
 const getChildrenWithFullsearch = (data: TreeItem[], parentId: number): TreeItem[] => {
     return data.filter(elem => elem.parentId === parentId);
@@ -19,38 +19,38 @@ const getChildrenWithFullsearch = (data: TreeItem[], parentId: number): TreeItem
 
 const computeParentIndex = (data: TreeItem[]) => {
     // map TreeItem.id -> array index
-    let map = new Map();
-    for(let i=0; i<data.length; i++) {
-        let item = data[i];
+    const map = new Map();
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
         map.set(item.id, i);
 
         if (!item.parentId)
             continue;
 
-        let parentIndex = map.get(item.parentId);
+        const parentIndex = map.get(item.parentId);
         item.parentIndex = parentIndex;
     }
 }
 
 const computeChildIndex = (data: TreeItem[]) => {
     // map TreeItem.id -> array index
-    let idMap = new Map();
+    const idMap = new Map();
 
     // parent id => list of child index
-    let childMap = new Map();
+    const childMap = new Map();
 
-    for(let i=0; i<data.length; i++) {
-        let item = data[i];
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
         idMap.set(item.id, i);
 
         if (!item.parentId)
             continue;
 
         if (!childMap.has(item.parentId)) {
-            childMap.set(item.parentId, [])
+            childMap.set(item.parentId, []);
         }
 
-        let childList = childMap.get(item.parentId);
+        const childList = childMap.get(item.parentId);
         childList.push(i);
     }
 
@@ -59,44 +59,44 @@ const computeChildIndex = (data: TreeItem[]) => {
         if (childrenIndexList.length < 1)
             return;
 
-        let children: number[] = [];
-        for(let p=0; p<childrenIndexList.length; p++) {
-            let childIndex = childrenIndexList[p];
+        const children: number[] = [];
+        for(let p = 0; p < childrenIndexList.length; p++) {
+            const childIndex = childrenIndexList[p];
             children.push(childIndex);
         }
 
-        let parent = data[idMap.get(k)];
+        const parent = data[idMap.get(k)];
         parent.childrenIndex = children;
     });
 }
 
 const findIndex = (data: TreeItem[], search: TreeItem): number => {
-    for(let i=0; i<data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         if (data[i].id === search.id) {
             return i;
         }
     }
     return -1;
-}
+};
 
 const replaceTreeItem = (source: TreeItem[], replacement: TreeItem): TreeItem[] => {
-    let pos = findIndex(source, replacement);
+    const pos = findIndex(source, replacement);
     if (pos < 0) {
         console.error("Item not found", replacement);
         return source;
     }
 
-    let result: TreeItem[] = [...source];
+    const result: TreeItem[] = [...source];
     result.splice(pos, 1, replacement);
     return result;
-}
+};
 
 const util = {
     recalcParentIndex: computeParentIndex,
     recalcChildrenMap: computeChildIndex,
     getChildren: getChildrenWithFullsearch,
-    replaceTreeItem: replaceTreeItem,
-    getRoot: getRoot
+    replaceTreeItem,
+    getRoot
 };
 
 export default util;

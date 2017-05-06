@@ -1,21 +1,24 @@
 import * as React from "react";
-import Util from "./util"
-import {AwesomeIconProps, ObjectStyle, ExpandButtonProps, TreeElementProps, SwitchExpandAction, TreeActions, TreeWidget, TreeItem} from "./typings"
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { AwesomeIconProps, ObjectStyle, TreeElementProps } from "../../../typings/index.d";
+import { TreeWidget } from "../../../typings/model.d";
+import { TreeActions } from "../../../typings/redux.d";
+import { TreeItem } from "../../../typings/tree.d";
+import Util from "./util";
 require("./style.css");
 const treeStyle = "tree";
 const iconColor = "green";
 
 const AwesomeIcon = ({name, color}: AwesomeIconProps): JSX.Element => {
     const style = {
-        color: color
+        color
     };
     const cssClass = `fa fa-${name}`;
     return <span className={cssClass} style={style}/>;
-}
+};
 
 const displayObject = (item: TreeItem): ObjectStyle => {
-    switch(item.objectType) {
+    switch (item.objectType) {
         case "dossier":
             return {
                 icon: "envelope",
@@ -35,19 +38,19 @@ const displayObject = (item: TreeItem): ObjectStyle => {
             return {
                 icon: "file",
                 color: "orange"
-            }
+            };
         default:
-            throw `unknown object type ${item.objectType}`
+            throw new Error("unknown object type");
     }
-}
+};
 
 const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element => {
-    const eventHandler = (event:any) => expandHandler(item, !item.isExpanded);
+    const eventHandler = (event: any) => expandHandler(item, !item.isExpanded);
     const children = Util.getChildren(data, item.id);
     const style = displayObject(item);
     const hasChildren: boolean = !!children && children.length > 0;
     const showChildren: boolean = hasChildren && item.isExpanded;
-    const isLeaf: boolean = item.objectType == "leaf";
+    const isLeaf: boolean = item.objectType === "leaf";
 
     return <li key={item.id}>
         <span onClick={eventHandler}>
@@ -60,14 +63,14 @@ const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element
     </li>;
 }
 
-const Tree = ({title, data, switchExpand}: TreeWidget & TreeActions) =>{
-    let root = Util.getRoot(data);
+const Tree = ({title, data, switchExpand}: TreeWidget & TreeActions) => {
+    const root = Util.getRoot(data);
     return <div>
         <h2>{title}</h2>
         <div className="tree">
             <ul><TreeElement data={data} item={root} expandHandler={switchExpand} /></ul>
         </div>
     </div>;
-} 
+};
 
 export {Tree};
