@@ -1,10 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState, HelloProps } from "../../../typings/model";
+import AwesomeIcon from "../Awesome/Component";
 import Tree from "../Tree/Container";
 
 const Hello = ({compiler, framework}: HelloProps) => <div>
-        <h1><i className="fa fa-heart" /> for {compiler} and {framework}!</h1>
+        <h1><AwesomeIcon name="heart" color="red" /> for {compiler} and {framework}!</h1>
         <Tree />
     </div>;
 
