@@ -1,3 +1,10 @@
+export const enum objTypes {
+    dossier,
+    sequence,
+    section,
+    leaf
+}
+
 export interface TreeItem {
     id: number;
     level: number;
@@ -6,5 +13,5 @@ export interface TreeItem {
     childrenIndex?: number[];
     name: string;
     isExpanded: boolean;
-    objectType: "dossier" | "sequence" | "section" | "leaf";
+    objectType: objTypes
 }

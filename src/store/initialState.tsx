@@ -1,73 +1,73 @@
-import { AppState } from "typings/model";
-import { TreeItem } from "typings/tree";
+import { AppState } from "../../typings/model";
+import { objTypes, TreeItem } from "../../typings/tree";
 
 const extedorin: TreeItem[] = [
     {
         id: 1,
         level: 0,
         name: "Extedorin",
-        objectType: "dossier",
+        objectType: objTypes.dossier,
         isExpanded: true
     }, {
         id: 2,
         level: 1,
         parentId: 1,
         name: "0000",
-        objectType: "sequence",
+        objectType: objTypes.sequence,
         isExpanded: true
     }, {
         id: 3,
         level: 2,
         parentId: 2,
         name: "m1",
-        objectType: "section",
+        objectType: objTypes.section,
         isExpanded: true
     }, {
         id: 4,
         level: 2,
         parentId: 2,
         name: "m2",
-        objectType: "section",
+        objectType: objTypes.section,
         isExpanded: false
     }, {
         id: 5,
         name: "m3",
-        objectType: "section",
+        objectType: objTypes.section,
         level: 2,
         parentId: 2,
         isExpanded: true
     }, {
         id: 6,
         name: "m4",
-        objectType: "section",
+        objectType: objTypes.section,
         level: 2,
         parentId: 2,
         isExpanded: false
     }, {
         id: 7,
         name: "m5",
-        objectType: "section",
+        objectType: objTypes.section,
         level: 2,
         parentId: 2,
         isExpanded: false
     }, {
         id: 8,
         name: "0001",
-        objectType: "sequence",
+        objectType: objTypes.sequence,
         level: 1,
         parentId: 1,
         isExpanded: false
     }, {
         id: 9,
         name: "0002",
-        objectType: "sequence",
+        objectType: objTypes.sequence,
         level: 1,
         parentId: 1,
         isExpanded: false
     }, {
         id: 10,
         name: "cover-letter",
-        objectType: "leaf",
+        objectType: objTypes.leaf,
         level: 3,
         parentId: 3,
         isExpanded: false
