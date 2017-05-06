@@ -1,21 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { AwesomeIconProps, ObjectStyle, TreeElementProps } from "../../../typings/index";
+import { ObjectStyle, TreeElementProps } from "../../../typings/index";
 import { TreeWidget } from "../../../typings/model";
 import { TreeActions } from "../../../typings/redux";
 import { objTypes, TreeItem } from "../../../typings/tree";
+import AwesomeIcon from "../Awesome/Component";
 import Util from "./util";
 require("./style.css");
 const treeStyle = "tree";
 const iconColor = "green";
-
-const AwesomeIcon = ({name, color}: AwesomeIconProps): JSX.Element => {
-    const style = {
-        color
-    };
-    const cssClass = `fa fa-${name}`;
-    return <span className={cssClass} style={style}/>;
-};
 
 const displayObject = (item: TreeItem): ObjectStyle => {
     switch (item.objectType) {
