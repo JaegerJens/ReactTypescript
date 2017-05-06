@@ -10,10 +10,8 @@ export interface TreeActions {
     switchExpand: SwitchExpandAction;
 }
 
-export const TREE_SWITCHEXPAND_ACTION = "TREE_SWITCHEXPAND";
-
 export interface TreeExpandAction extends Action {
-    type: "TREE_SWITCHEXPAND";
+    type: string;
     item: TreeItem;
     isExpanded: boolean;
 }

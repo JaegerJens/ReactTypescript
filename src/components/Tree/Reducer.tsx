@@ -1,8 +1,9 @@
 import { Action, Reducer } from "redux";
 import { TreeWidget } from "../../../typings/model.d";
-import { TREE_SWITCHEXPAND_ACTION, TreeExpandAction } from "../../../typings/redux.d";
+import { TreeExpandAction } from "../../../typings/redux.d";
 import { TreeItem } from "../../../typings/tree.d";
 import { initialState } from "../../store/initialState";
+import { TREE_SWITCHEXPAND_ACTION } from "./Action";
 import TreeUtil from "./util";
 
 const reducerName = "tree epxand reducer";
