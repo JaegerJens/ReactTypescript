@@ -68,7 +68,8 @@ const computeChildIndex = (data: TreeItem[]) => {
         }
 
         const children: number[] = [];
-        for(let p = 0; p < childrenIndexList.length; p++) {
+        // tslint:disable-next-line:prefer-for-of
+        for (let p = 0; p < childrenIndexList.length; p++) {
             const childIndex = childrenIndexList[p];
             children.push(childIndex);
         }

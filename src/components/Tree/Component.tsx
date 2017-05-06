@@ -59,9 +59,17 @@ const TreeElement = ({data, item, expandHandler}: TreeElementProps): JSX.Element
             {isLeaf && <AwesomeIcon name="external-link" color={style.color} /> }
             {hasChildren && !showChildren && <AwesomeIcon name="expand" color="grey" /> }
         </span>
-        {showChildren && <ul>{children.map(child => <TreeElement key={child.id} data={data} item={child} expandHandler={expandHandler} />)}</ul>}
+        {showChildren &&
+            <ul>{
+                children.map(
+                    (child) => <TreeElement
+                                    key={child.id}
+                                    data={data}
+                                    item={child}
+                                    expandHandler={expandHandler} />)
+            }</ul>}
     </li>;
-}
+};
 
 const Tree = ({title, data, switchExpand}: TreeWidget & TreeActions) => {
     const root = Util.getRoot(data);
