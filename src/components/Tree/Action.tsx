@@ -5,12 +5,11 @@ import { TreeItem } from "../../../typings/tree";
 export const TREE_SWITCHEXPAND_ACTION = "TREE_SWITCHEXPAND";
 
 const expandAction: SwitchExpandAction = (item: TreeItem, isEnabled: boolean): TreeExpandAction => {
-    const resultItem = {
+    const resultItem: TreeExpandAction = {
         type: TREE_SWITCHEXPAND_ACTION,
         item,
         isExpanded: isEnabled
     };
-    console.log(resultItem);
     return resultItem;
 };
 
