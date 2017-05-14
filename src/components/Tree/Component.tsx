@@ -7,8 +7,6 @@ import { objTypes, TreeItem } from "../../../typings/tree";
 import AwesomeIcon from "../Awesome/Component";
 import Util from "./util";
 require("./style.css");
-const treeStyle = "tree";
-const iconColor = "green";
 
 const displayObject = (item: TreeItem): ObjectStyle => {
     switch (item.objectType) {
