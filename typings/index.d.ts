@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from "@types/react";
+import { ChangeEventHandler } from "react";
 import { TreeItem } from "./tree";
 import { SwitchExpandAction } from "./redux";
 
