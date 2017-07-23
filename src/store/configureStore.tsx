@@ -15,7 +15,7 @@ const reducerMap: ReducersMapObject = {
 
 const reducer = combineReducers<AppState>(reducerMap);
 
-export default (initialState: AppState) => {
-    const store = createStore(reducer, initialState);
+export default (initState: AppState) => {
+    const store = createStore(reducer, initState);
     return store;
 };
