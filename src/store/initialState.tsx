@@ -76,8 +76,8 @@ const extedorin: TreeItem[] = [
 
 export const initialState: AppState = {
     hello: {
-        compiler: "Typescript 2.4",
-        framework: "React 15.6"
+        compiler: "Typescript 2.5",
+        framework: "React 16.0"
     },
     tree: {
         title: "Tree Widget",
